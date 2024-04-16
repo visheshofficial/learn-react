@@ -1,0 +1,9 @@
+node -v
+
+yarn create react-app dojo-blog
+
+cd dojo-blog
+ 
+ yarn start
+
+ 
