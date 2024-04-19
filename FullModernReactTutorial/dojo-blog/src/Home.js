@@ -57,6 +57,10 @@ const Home = () => {
       </button>
 
       <BlogList blogs={blogs} title="All blogs" />
+      <BlogList
+        blogs={blogs.filter((blog) => blog.author === 'Alice')}
+        title="Alice's blogs"
+      />
     </div>
   )
 }
