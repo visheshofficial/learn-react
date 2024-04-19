@@ -24,18 +24,23 @@ const Home = () => {
     // console.log(event)
   }
 
-  const [blogs, setBlogs] = useState([])
+  const [blogs, setBlogs] = useState(null)
   const [name, setName] = useState('Mario')
 
   useEffect(() => {
     console.log('useEffect ran')
-    console.log(blogs)
+    fetch('http://localhost:8000/blogs')
+      .then((res) => res.json())
+      .then((data) => {
+        setBlogs(data)
+        console.log(data)
+      })
   }, [name]) //useffect runs every time the component renders
 
-  const handleDelete = (id) => {
-    const newBlogs = blogs.filter((blog) => blog.id !== id)
-    setBlogs(newBlogs)
-  }
+  // const handleDelete = (id) => {
+  //   const newBlogs = blogs.filter((blog) => blog.id !== id)
+  //   setBlogs(newBlogs)
+  // }
 
   return (
     <div className="home">
@@ -50,12 +55,20 @@ const Home = () => {
       <hr></hr>
       <button onClick={() => setName('Donald')}>Change Mario</button>
       <p>{name}</p>
-      <BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} />
-      <BlogList
-        blogs={blogs.filter((blog) => blog.author === 'Alice')}
-        title="Alice's blogs"
-        handleDelete={handleDelete}
-      />
+
+      {blogs && (
+        <BlogList
+          blogs={blogs}
+          title="All blogs" /*handleDelete={handleDelete} */
+        />
+      )}
+      {blogs && (
+        <BlogList
+          blogs={blogs.filter((blog) => blog.author === 'Alice')}
+          title="Alice's blogs"
+          // handleDelete={handleDelete}
+        />
+      )}
     </div>
   )
 }

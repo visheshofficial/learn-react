@@ -17,6 +17,12 @@
             "body": "The top tips for web development",
             "author": "Alice",
             "id": 3
+          },
+          {
+            "title": "React Top tips",
+            "body": "The top tips for web development",
+            "author": "Alice",
+            "id": 4
           }
         ]
 }
