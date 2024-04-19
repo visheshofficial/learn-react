@@ -45,6 +45,11 @@ const Home = () => {
     },
   ])
 
+  const handleDelete = (id) => {
+    const newBlogs = blogs.filter((blog) => blog.id !== id)
+    setBlogs(newBlogs)
+  }
+
   return (
     <div className="home">
       <h2>Home page</h2>
@@ -56,10 +61,11 @@ const Home = () => {
         Click me again!
       </button>
 
-      <BlogList blogs={blogs} title="All blogs" />
+      <BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} />
       <BlogList
         blogs={blogs.filter((blog) => blog.author === 'Alice')}
         title="Alice's blogs"
+        handleDelete={handleDelete}
       />
     </div>
   )
