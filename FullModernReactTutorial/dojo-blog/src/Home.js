@@ -44,11 +44,12 @@ const Home = () => {
       id: 3,
     },
   ])
+  const [name, setName] = useState('Mario')
 
   useEffect(() => {
     console.log('useEffect ran')
     console.log(blogs)
-  }) //useffect runs every time the component renders
+  }, [name]) //useffect runs every time the component renders
 
   const handleDelete = (id) => {
     const newBlogs = blogs.filter((blog) => blog.id !== id)
@@ -65,7 +66,9 @@ const Home = () => {
       <button onClick={(e) => hancleClickAgain('Alice', e)}>
         Click me again!
       </button>
-
+      <hr></hr>
+      <button onClick={() => setName('Donald')}>Change Mario</button>
+      <p>{name}</p>
       <BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} />
       <BlogList
         blogs={blogs.filter((blog) => blog.author === 'Alice')}
