@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import BlogList from './BlogList'
+import useFetch from './useFetch'
 const Home = () => {
   // let name = 'Alice'
   const [reactName, setReactName] = useState('Alice')
   const [age, setAge] = useState(25)
-  const [isPending, setIsPending] = useState(true)
+  // const [isPending, setIsPending] = useState(true)
 
   const hancleClick = (e) => {
     // console.log(e)
@@ -25,40 +26,44 @@ const Home = () => {
     // console.log(event)
   }
 
-  const [blogs, setBlogs] = useState(null)
-  const [name, setName] = useState('Mario')
-  const [error, setError] = useState(null)
+  // const [blogs, setBlogs] = useState(null)
+  // const [name, setName] = useState('Mario')
+  // const [error, setError] = useState(null)
 
-  useEffect(() => {
-    console.log('useEffect ran')
-    setTimeout(() => {
-      fetch('http://localhost:8000/blogs')
-        .then((res) => {
-          console.log(res)
-          if (!res.ok) {
-            throw Error('Could not fetch the data for that resource')
-          }
-          res.json()
-        })
-        .then((data) => {
-          setBlogs(data)
-          console.log(data)
-          setIsPending(false)
-          setError(null)
-        })
-        .catch((err) => {
-          console.log(err.message)
-          setError(err.message)
-          setIsPending(false)
-        })
-    }, 1000)
-  }, [name]) //useffect runs every time the component renders
+  // useEffect(() => {
+  //   console.log('useEffect ran')
+  //   setTimeout(() => {
+  //     fetch('http://localhost:8000/blogs')
+  //       .then((res) => {
+  //         console.log(res)
+  //         if (!res.ok) {
+  //           throw Error('Could not fetch the data for that resource')
+  //         }
+  //         res.json()
+  //       })
+  //       .then((data) => {
+  //         setBlogs(data)
+  //         console.log(data)
+  //         setIsPending(false)
+  //         setError(null)
+  //       })
+  //       .catch((err) => {
+  //         console.log(err.message)
+  //         setError(err.message)
+  //         setIsPending(false)
+  //       })
+  //   }, 1000)
+  // }, [name]) //useffect runs every time the component renders
 
   // const handleDelete = (id) => {
   //   const newBlogs = blogs.filter((blog) => blog.id !== id)
   //   setBlogs(newBlogs)
   // }
-
+  const {
+    data: blogs,
+    isPending,
+    error,
+  } = useFetch('http://localhost:8000/blogs')
   return (
     <div className="home">
       <h2>Home page</h2>
@@ -70,8 +75,8 @@ const Home = () => {
         Click me again!
       </button>
       <hr></hr>
-      <button onClick={() => setName('Donald')}>Change Mario</button>
-      <p>{name}</p>
+      {/* <button onClick={() => setName('Donald')}>Change Mario</button>
+      <p>{name}</p> */}
 
       {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
