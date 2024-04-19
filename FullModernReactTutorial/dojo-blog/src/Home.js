@@ -27,15 +27,28 @@ const Home = () => {
 
   const [blogs, setBlogs] = useState(null)
   const [name, setName] = useState('Mario')
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     console.log('useEffect ran')
     setTimeout(() => {
       fetch('http://localhost:8000/blogs')
-        .then((res) => res.json())
+        .then((res) => {
+          console.log(res)
+          if (!res.ok) {
+            throw Error('Could not fetch the data for that resource')
+          }
+          res.json()
+        })
         .then((data) => {
           setBlogs(data)
           console.log(data)
+          setIsPending(false)
+          setError(null)
+        })
+        .catch((err) => {
+          console.log(err.message)
+          setError(err.message)
           setIsPending(false)
         })
     }, 1000)
@@ -60,6 +73,7 @@ const Home = () => {
       <button onClick={() => setName('Donald')}>Change Mario</button>
       <p>{name}</p>
 
+      {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
 
       {blogs && (
