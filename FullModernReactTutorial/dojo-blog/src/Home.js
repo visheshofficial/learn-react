@@ -24,26 +24,7 @@ const Home = () => {
     // console.log(event)
   }
 
-  const [blogs, setBlogs] = useState([
-    {
-      title: 'My new website',
-      body: 'Welcome to my new website',
-      author: 'Alice',
-      id: 1,
-    },
-    {
-      title: 'Welcome party!',
-      body: 'You are invited to my welcome party',
-      author: 'Bob',
-      id: 2,
-    },
-    {
-      title: 'Web dev top tips',
-      body: 'The top tips for web development',
-      author: 'Alice',
-      id: 3,
-    },
-  ])
+  const [blogs, setBlogs] = useState([])
   const [name, setName] = useState('Mario')
 
   useEffect(() => {
