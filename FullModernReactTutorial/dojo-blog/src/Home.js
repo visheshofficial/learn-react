@@ -4,6 +4,7 @@ const Home = () => {
   // let name = 'Alice'
   const [reactName, setReactName] = useState('Alice')
   const [age, setAge] = useState(25)
+  const [isPending, setIsPending] = useState(true)
 
   const hancleClick = (e) => {
     // console.log(e)
@@ -29,12 +30,15 @@ const Home = () => {
 
   useEffect(() => {
     console.log('useEffect ran')
-    fetch('http://localhost:8000/blogs')
-      .then((res) => res.json())
-      .then((data) => {
-        setBlogs(data)
-        console.log(data)
-      })
+    setTimeout(() => {
+      fetch('http://localhost:8000/blogs')
+        .then((res) => res.json())
+        .then((data) => {
+          setBlogs(data)
+          console.log(data)
+          setIsPending(false)
+        })
+    }, 1000)
   }, [name]) //useffect runs every time the component renders
 
   // const handleDelete = (id) => {
@@ -55,6 +59,8 @@ const Home = () => {
       <hr></hr>
       <button onClick={() => setName('Donald')}>Change Mario</button>
       <p>{name}</p>
+
+      {isPending && <div>Loading...</div>}
 
       {blogs && (
         <BlogList
