@@ -1,12 +1,6 @@
 {
   "blogs": [
     {
-      "title": "My new website",
-      "body": "Welcome to my new website",
-      "author": "Alice",
-      "id": "1"
-    },
-    {
       "title": "Welcome party!",
       "body": "You are invited to my welcome party",
       "author": "Bob",
@@ -23,54 +17,6 @@
       "body": "The top tips for web development",
       "author": "Alice",
       "id": "4"
-    },
-    {
-      "id": "9c91",
-      "title": "sd",
-      "body": "sd",
-      "author": "alice"
-    },
-    {
-      "id": "e55f",
-      "title": "sd",
-      "body": "sd",
-      "author": "alice"
-    },
-    {
-      "id": "7128",
-      "title": "sd",
-      "body": "sd",
-      "author": "alice"
-    },
-    {
-      "id": "7029",
-      "title": "sd",
-      "body": "sd",
-      "author": "alice"
-    },
-    {
-      "id": "859b",
-      "title": "wds2ewd",
-      "body": "dwasdwwefrg",
-      "author": "alice"
-    },
-    {
-      "id": "6f4f",
-      "title": "Alice blog new new new",
-      "body": "sdsdsfghjk",
-      "author": "alice"
-    },
-    {
-      "id": "89a1",
-      "title": "Alice blog new new new",
-      "body": "sdsdsfghjk",
-      "author": "alice"
-    },
-    {
-      "id": "f0c6",
-      "title": "Alice blog new new neww",
-      "body": "sdsdsfghjk",
-      "author": "alice"
     }
   ]
 }
