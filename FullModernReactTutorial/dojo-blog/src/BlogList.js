@@ -3,7 +3,6 @@
 //   console.log(blogs)
 
 import { Link } from 'react-router-dom'
-import BlogDetails from './Blogdetails'
 
 //   const title = props.title
 const BlogList = ({ blogs, title, handleDelete }) => {
