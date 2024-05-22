@@ -1,3 +1,6 @@
-[submodule "Maximilian-Schwarzmüller-Course/Maximilian-Schwarzmüller-Course"]
-	path = Maximilian-Schwarzmüller-Course/Maximilian-Schwarzmüller-Course
+[submodule "Maximilian-Schwarzmüller-Course/CourseMaterial"]
+	path = Maximilian-Schwarzmüller-Course/CourseMaterial
 	url = https://github.com/PacktPublishing/React---The-Complete-Guide-includes-Hooks-React-Router-and-Redux-Second-Edition.git
+[submodule "Maximilian-Schwarzmüller-Course/react-complete-guide-course-resources"]
+	path = Maximilian-Schwarzmüller-Course/react-complete-guide-course-resources
+	url = https://github.com/academind/react-complete-guide-course-resources.git
