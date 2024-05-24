@@ -5,6 +5,13 @@ console.log(util.apiKey)
 
 // default export
 console.log(one)
+import * as util from './util.js'
+import one from './one.js'
+
+console.log(util.apiKey)
+
+// default export
+console.log(one)
 
 // variables , values and variables
 let a = 1
@@ -14,6 +21,7 @@ console.log(a)
 // constants
 const b = 1
 console.log(b)
+// b = 3
 // b = 3
 //TypeError: Assignment to constant variable.
 // at app.js:12:3
@@ -218,3 +226,15 @@ function greeter(greet) {
 }
 
 greeter(() => console.log('Hola'))
+
+// function inside function
+function init() {
+  function run() {
+    console.log('Initialized')
+  }
+  run()
+}
+
+init()
+
+// references vs primitives
