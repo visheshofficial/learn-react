@@ -1,3 +1,16 @@
-function App() {}
+import { Fragment } from 'react'
+import Header from './components/Header'
+import Quiz from './components/Quiz'
 
-export default App;
+function App() {
+  return (
+    <>
+      <Header></Header>
+      <main>
+        <Quiz></Quiz>
+      </main>
+    </>
+  )
+}
+
+export default App
